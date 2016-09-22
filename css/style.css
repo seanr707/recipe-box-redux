@@ -1,0 +1,461 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+body {
+  background: #eeeeee;
+  font-family: Roboto;
+  margin: 0;
+}
+@media screen and (max-width: 350px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+input {
+  background: #f1f1f1;
+  border-radius: 2px;
+  border: 1px solid #8a8a8a;
+  box-shadow: inset 0 0px 2px #999999;
+  padding: 5px;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0px 3px purple;
+  background: white;
+}
+@media screen and (max-width: 350px) {
+  input {
+    width: 60%;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 2px;
+  margin: 5px;
+  min-width: 75px;
+}
+
+.btn-default {
+  background: #dedede;
+  border: 1px solid #b8b8b8;
+  color: #343434;
+}
+.btn-default:hover {
+  background: #ebebeb;
+  box-shadow: 0 1px 1px #222222;
+}
+.btn-default:focus {
+  outline: none;
+  background: #d1d1d1;
+}
+
+.btn-primary {
+  background: purple;
+  border: 1px solid #340034;
+  color: #ededed;
+}
+.btn-primary:hover {
+  background: #9a009a;
+  box-shadow: 0 1px 1px #222222;
+}
+.btn-primary:focus {
+  outline: none;
+  background: #670067;
+}
+
+.btn-danger {
+  background: #de3232;
+  border: 1px solid #a81b1b;
+  color: #ededed;
+}
+.btn-danger:hover {
+  background: #e24848;
+  box-shadow: 0 1px 1px #222222;
+}
+.btn-danger:focus {
+  outline: none;
+  background: #d42222;
+}
+
+.hidden .popup {
+  -webkit-transform: translateY(-1000px);
+          transform: translateY(-1000px);
+  opacity: 0;
+}
+.hidden .background {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.hidden .ingredients {
+  height: 0px;
+}
+
+@media screen and (max-width: 700px) {
+  .no-mobile {
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
+.popup {
+  background-color: white;
+  height: auto;
+  width: 400px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  position: fixed;
+  margin: 50px auto;
+  z-index: 3;
+  border: 1px solid #7a007a;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px black;
+  opacity: 1.0;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+@media screen and (max-width: 700px) {
+  .popup {
+    margin: 50px auto 5% auto;
+    width: 80%;
+  }
+}
+@media screen and (max-height: 700px) {
+  .popup {
+    margin: 10px auto;
+  }
+}
+
+.popup-body-container {
+  position: relative;
+  left: inherit;
+  top: inherit;
+  z-index: 8;
+  background: white;
+  margin: 5px auto 0 auto;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.input-table {
+  width: 100%;
+}
+.input-table td {
+  padding: 3px;
+}
+
+.input-title {
+  text-align: right;
+}
+
+.background {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.5;
+  padding: auto 50px auto 50px;
+  -webkit-transition: opacity 1s, visibility 1s;
+  transition: opacity 1s, visibility 1s;
+}
+
+.recipelist-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin: 20px auto 0 auto;
+  padding: 10px;
+  max-width: 848px;
+  background: #eeeeee;
+}
+@media screen and (max-width: 1000px) {
+  .recipelist-wrapper {
+    width: 636px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .recipelist-wrapper {
+    width: 288px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .recipelist-wrapper {
+    width: 224px;
+  }
+}
+
+.collapsed {
+  height: 200px;
+  width: 200px;
+  background-color: #fefefe;
+  border: 1px solid #444444;
+  box-shadow: 0 1px 2px #454545;
+  margin: 5px;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.collapsed:hover {
+  box-shadow: 0 1px 2px #aa30ff;
+  border-color: #7600c9;
+}
+.collapsed .collapsed-title {
+  height: 20px;
+  margin: 5px auto;
+  color: #343434;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: bold;
+}
+@media screen and (max-width: 700px) {
+  .collapsed {
+    width: 132px;
+    height: 132px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .collapsed {
+    width: 100px;
+    height: 100px;
+  }
+  .collapsed .collapsed-title {
+    font-size: 12px;
+    height: 14px;
+    margin: 2px;
+  }
+  .collapsed .recipe-picture {
+    margin: 2px 2px 0 2px;
+  }
+}
+
+.recipe-picture {
+  height: 140px;
+  width: 188px;
+  background-color: #cdcdcd;
+  border: 1px solid #555555;
+  box-shadow: 0 1px 2px #aaaaaa;
+  margin: 5px;
+}
+@media screen and (max-width: 700px) {
+  .recipe-picture {
+    width: 124.08px;
+    height: 92.4px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .recipe-picture {
+    width: 94px;
+    height: 70px;
+  }
+  .recipe-picture .collapsed-title {
+    font-size: 12px;
+    height: 14px;
+    margin: 2px;
+  }
+  .recipe-picture .recipe-picture {
+    margin: 2px 2px 0 2px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .recipe-picture {
+    margin: 3px 3px 0 3px;
+  }
+}
+
+.title {
+  background: purple;
+  color: #fefefe;
+  padding: 5px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: normal;
+  text-shadow: 0 1px 2px black;
+  box-shadow: 0 1px 2px #333333;
+  cursor: pointer;
+}
+
+.ingredient-list {
+  height: auto;
+}
+
+.ingredients {
+  height: 100%;
+  -webkit-transition: height 1s ease 3s;
+  transition: height 1s ease 3s;
+  background: #ffff69;
+  margin: 10px auto 5px auto;
+  width: auto;
+  border-collapse: collapse;
+  box-shadow: 0 1px 2px;
+}
+.ingredients th, .ingredients td {
+  font-family: cursive;
+  border-bottom: 1px solid #d06464;
+  padding: 5px;
+}
+.ingredients tbody tr:hover {
+  background: #3388cc;
+  color: white;
+  border: 1px solid #266699;
+  text-shadow: 0 0px 3px black;
+  box-shadow: 0 2px 5px #cdcdcd;
+}
+.ingredients .quantity {
+  text-align: right;
+}
+.ingredients .measurement {
+  text-align: left;
+}
+.ingredients .ingredient-name {
+  text-align: left;
+}
+
+.inline {
+  display: inline-block;
+}
+.inline p {
+  display: inherit;
+}
+.inline ul {
+  display: inherit;
+}
+
+.page {
+  margin: 5px auto;
+  width: 80%;
+  -webkit-transition: opacity 1s ease, -webkit-transform 2s ease;
+  transition: opacity 1s ease, -webkit-transform 2s ease;
+  transition: transform 2s ease, opacity 1s ease;
+  transition: transform 2s ease, opacity 1s ease, -webkit-transform 2s ease;
+}
+
+.no-visible {
+  opacity: 0.0;
+  position: absolute;
+  top: 0px;
+}
+
+.move-left {
+  -webkit-transform: translateX(-1500px);
+          transform: translateX(-1500px);
+}
+
+.move-right {
+  -webkit-transform: translateX(1500px);
+          transform: translateX(1500px);
+}
+
+.arrow {
+  position: absolute;
+  top: 48%;
+  height: 32px;
+  width: 32px;
+  border: 1px solid #670067;
+  background: purple;
+  border-radius: 100%;
+  box-shadow: 0 1px 2px black;
+  color: white;
+}
+.arrow:hover {
+  background: #aa0088;
+}
+.arrow:disabled {
+  background: #888888;
+  border-color: #444444;
+}
+.arrow.left-arrow {
+  left: 10px;
+}
+.arrow.right-arrow {
+  right: 10px;
+}
+
+.ingredients-alter-buttons {
+  width: 170px;
+  margin: 0 auto 0 auto;
+}
+
+.navbar {
+  background: purple;
+  color: white;
+  height: 48px;
+  box-shadow: 0 1px 2px #656565;
+  padding: 3px;
+}
+
+.navbar-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.nav-container {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-title {
+  display: inline-block;
+  padding-left: 20px;
+  padding-top: 6px;
+  margin: 0;
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+}
+.nav-title p {
+  display: inherit;
+  margin: inherit;
+}
+
+.nav-buttons {
+  float: right;
+  display: inline-block;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.nav-button {
+  display: inline-block;
+  width: 75px;
+  height: 36px;
+  text-align: center;
+  padding-top: 14px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.nav-button:hover {
+  text-shadow: 0 1px 2px #333333;
+  background: #8f008f;
+}
+
+#addButtonContainer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  width: 100px;
+  padding: 5px 0 10px 0;
+  margin: 0 auto 0 auto;
+}
+
+#addButton {
+  margin: 0;
+  box-shadow: 0 1px 3px black;
+  padding: 1px auto 1px auto;
+  width: 100px;
+}
